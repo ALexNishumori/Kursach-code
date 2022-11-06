@@ -1,0 +1,335 @@
+namespace Kursach
+{
+    public partial class Form1 : Form
+    {
+
+        string users_data = "";
+        int[] win_logick_array = new int[9];
+        Button[] button_count = new Button[9];
+        Random rnd_start = new Random();
+        int number = 0;
+        int number_1 = 0;
+
+        public Form1()
+        {
+
+            InitializeComponent();
+
+            if(rnd_start.Next(1, 10) <= 5)
+            {
+                users_data = "krestik";
+                label1.Text = "Now is X turn";
+            }
+            else
+            {
+                users_data = "nolik";
+                label1.Text = "Now is O turn";
+            }
+
+            button_count[0] = button1;
+            button_count[1] = button2;
+            button_count[2] = button3;
+            button_count[3] = button4;
+            button_count[4] = button5;
+            button_count[5] = button6;
+            button_count[6] = button7;
+            button_count[7] = button8;
+            button_count[8] = button9;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if(users_data == "krestik")
+            {
+                for(int i = 0; i < button_count.Length; i++)
+                {
+                    if(sender == button_count[i])
+                    {
+                        button_count[i].Text = "X";
+                        label1.Text = "Now is O turn";
+                        users_data = "nolik";
+                        button_count[i].Enabled = false;
+                        win_logick_array[i] = 1;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    if (sender == button_count[i])
+                    {
+                        button_count[i].Text = "O";
+                        label1.Text = "Now is X turn";
+                        users_data = "krestik";
+                        button_count[i].Enabled = false;
+                        win_logick_array[i] = 2;
+                        break;
+                    }
+                }
+            }
+
+
+
+            if (win_logick_array[0] == 1 && win_logick_array[1] == 1 && win_logick_array[2] == 1)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[1].BackColor = System.Drawing.Color.Red;
+                button_count[2].BackColor = System.Drawing.Color.Red;
+
+                for(int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if(win_logick_array[3] == 1 && win_logick_array[4] == 1 && win_logick_array[5] == 1)
+            {
+                button_count[3].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[5].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[6] == 1 && win_logick_array[7] == 1 && win_logick_array[8] == 1)
+            {
+                button_count[6].BackColor = System.Drawing.Color.Red;
+                button_count[7].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[0] == 1 && win_logick_array[3] == 1 && win_logick_array[6] == 1)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[3].BackColor = System.Drawing.Color.Red;
+                button_count[6].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[1] == 1 && win_logick_array[4] == 1 && win_logick_array[7] == 1)
+            {
+                button_count[1].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[7].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[2] == 1 && win_logick_array[5] == 1 && win_logick_array[8] == 1)
+            {
+                button_count[2].BackColor = System.Drawing.Color.Red;
+                button_count[5].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[0] == 1 && win_logick_array[4] == 1 && win_logick_array[8] == 1)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[2] == 1 && win_logick_array[4] == 1 && win_logick_array[6] == 1)
+            {
+                button_count[2].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[6].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            /* ------------------------------- */
+            else if (win_logick_array[0] == 2 && win_logick_array[1] == 2 && win_logick_array[2] == 2)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[1].BackColor = System.Drawing.Color.Red;
+                button_count[2].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[3] == 2 && win_logick_array[4] == 2 && win_logick_array[5] == 2)
+            {
+                button_count[3].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[5].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[6] == 2 && win_logick_array[7] == 2 && win_logick_array[8] == 2)
+            {
+                button_count[6].BackColor = System.Drawing.Color.Red;
+                button_count[7].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[0] == 2 && win_logick_array[3] == 2 && win_logick_array[6] == 2)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[3].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[1] == 2 && win_logick_array[4] == 2 && win_logick_array[7] == 2)
+            {
+                button_count[1].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[7].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[2] == 2 && win_logick_array[5] == 2 && win_logick_array[8] == 2)
+            {
+                button_count[2].BackColor = System.Drawing.Color.Red;
+                button_count[5].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[0] == 2 && win_logick_array[4] == 2 && win_logick_array[8] == 2)
+            {
+                button_count[0].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[8].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+            else if (win_logick_array[2] == 2 && win_logick_array[4] == 2 && win_logick_array[6] == 2)
+            {
+                button_count[2].BackColor = System.Drawing.Color.Red;
+                button_count[4].BackColor = System.Drawing.Color.Red;
+                button_count[6].BackColor = System.Drawing.Color.Red;
+
+                for (int i = 0; i < button_count.Length; i++)
+                {
+                    button_count[i].Enabled = false;
+                }
+
+                button10.Enabled = true;
+                label1.Text = "X is winner";
+            }
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+            for(int i = 0; i < button_count.Length; i++)
+            {
+                win_logick_array[i] = 0;
+                button_count[i].Text = "";
+
+                if (rnd_start.Next(1, 10) <= 5)
+                {
+                    users_data = "krestik";
+                    label1.Text = "Now is X turn";
+                }
+                else
+                {
+                    users_data = "nolik";
+                    label1.Text = "Now is O turn";
+                }
+
+                button_count[i].Enabled = true;
+                button_count[i].BackColor = System.Drawing.Color.White;
+            }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
